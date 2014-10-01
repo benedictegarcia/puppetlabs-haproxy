@@ -33,6 +33,9 @@
 #   An array of options to be specified after the bind declaration in the
 #    bind's configuration block.
 #
+# [*acl*]
+#   A string or an array of acl.
+#
 # [*options*]
 #   A hash of options that are inserted into the frontend service
 #    configuration block.
@@ -46,6 +49,10 @@
 #    ports        => '18140',
 #    mode         => 'tcp',
 #    bind_options => 'accept-proxy',
+#    acl          => [
+#      'static_file .*\.(css|js|png|bmp|jpg|jpeg|gif|ico)',
+#      'php_file .*\.(php|php5)',
+#    ],
 #    options      => {
 #      'option'   => [
 #        'tcplog',
@@ -65,6 +72,7 @@ define haproxy::frontend (
   $ipaddress        = [$::ipaddress],
   $mode             = undef,
   $bind_options     = undef,
+  $acl              = undef,
   $collect_exported = true,
   $options          = {
     'option'  => [

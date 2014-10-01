@@ -1,0 +1,9 @@
+<% if @acl -%>
+<% if @acl.is_a? Array -%>
+<% @acl.each do |a| -%>
+  acl <%= a %>
+<% end -%>
+<% else -%>
+  acl <%= @acl %>
+<% end -%>
+<% end -%>
