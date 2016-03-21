@@ -39,8 +39,6 @@
 # [*options*]
 #   A hash of options that are inserted into the frontend service
 #    configuration block.
-# [*use_backend*]
-#  An array which allow to use haproxy directive "use backend *backend_name*  if *name_acl*"
 #
 # === Examples
 #
@@ -76,7 +74,6 @@ define haproxy::frontend (
   $bind_options     = undef,
   $acl              = undef,
   $collect_exported = true,
-  $use_backend      = undef,
   $options          = {
     'option'  => [
       'tcplog',
